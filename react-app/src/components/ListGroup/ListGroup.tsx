@@ -3,12 +3,14 @@ import { useState } from "react";
 interface Props {
 	items: string[];
 	heading: string;
+	onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
 	const [active, setActive] = useState(0);
 	const handleClick = (index: any) => {
 		setActive(index);
+		onSelectItem(index);
 	};
 	return (
 		<>
